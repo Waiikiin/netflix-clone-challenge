@@ -37,6 +37,7 @@ function Row({title, fetchUrl, isLargeRow}) {
                     spaceBetween={10}
                     navigation={true}
                     speed={700}
+                    loop={true}
                     lazy={{
                         loadPrevNext: true,
                     }}

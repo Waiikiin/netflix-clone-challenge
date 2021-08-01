@@ -11,17 +11,22 @@ function Banner() {
             return array[Math.floor(Math.random() * array.length - 1)];
         }
 
-        function searchValidLink(url, nextLink) {
-            if (url) {
-                return url;
-            }else {
-                searchValidLink(nextLink);
+        function searchValidLink(array) {
+            if (array){
+                let movie = selectRandom(array);
+                let url = movie.backdrop_path;
+                if (url) {
+                    return movie;
+                } else {
+                    
+                    searchValidLink(array);
+                }
             }
         }
 
         async function fetchData(){
             const request = await axios.get(requests.fetchNetflixOriginals);
-            setMovie(searchValidLink(selectRandom(request.data.results))); 
+            setMovie(searchValidLink(request.data.results)); 
         }
 
         fetchData();
