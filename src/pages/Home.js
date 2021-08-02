@@ -4,11 +4,11 @@ import Banner from '../components/Banner';
 import requests from '../utils/Requests';
 import Row from '../components/Row';
 
-import '../styles/HomeScreen.css';
+import '../styles/Home.css';
 
-function HomeScreen() {
+function Home() {
     return (
-        <div className="homeScreen">
+        <div className="home">
             <Nav />
             <Banner />
             <Row title="Netflix Originals" fetchUrl={requests.fetchNetflixOriginals}
@@ -31,4 +31,4 @@ function HomeScreen() {
     )
 }
 
-export default HomeScreen
+export default Home
