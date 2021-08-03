@@ -6,27 +6,52 @@ import Row from '../components/Row';
 
 import '../styles/Home.css';
 
-function Home() {
+function Home({category}) {
+
+    function renameFetch(fetchName) {
+        const mapObj = {
+            fetch: "",
+            TVs: "TV Shows",
+            And: "and",
+          };
+
+        return fetchName.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/(fetch|TVs|And)/gi, matched => mapObj[matched]);;
+    }
+
+    const renderRows = (category) => {
+        if (category){
+            return (
+                <>
+                    {Object.entries(requests).map(([c, fetches]) => {
+                                if (c === category){
+                                    return Object.entries(fetches).map(([fetch,url]) => {
+                                        return (<Row key={url} title={renameFetch(fetch)} fetchUrl={url}
+                                            isLargeRow={false} />)
+                                    })
+                                }
+                        return 1;
+                    })}
+                </>
+            )
+        }else {
+            return (
+                <>
+                    {Object.entries(requests).map(([c, fetches]) => {
+                        return Object.entries(fetches).map(([fetch,url]) => {
+                            return (<Row key={url} title={renameFetch(fetch)} fetchUrl={url}
+                                isLargeRow={false} />)
+                        })
+                    })}
+                </>
+            )
+        }
+    }
+
     return (
         <div className="home">
             <Nav />
-            <Banner />
-            <Row title="Netflix Originals" fetchUrl={requests.fetchNetflixOriginals}
-            isLargeRow={false} />
-            <Row title="Trending Now" fetchUrl={requests.fetchTrending}
-            isLargeRow={false} />
-            <Row title="Top Rated" fetchUrl={requests.fetchTopRated}
-            isLargeRow={false} />
-            <Row title="Action Movies" fetchUrl={requests.fetchActionMovies}
-            isLargeRow={false} />
-            <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies}
-            isLargeRow={false} />
-            <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies}
-            isLargeRow={false} />
-            <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies}
-            isLargeRow={false} />
-            <Row title="Documentaries" fetchUrl={requests.fetchDocumentMovies}
-            isLargeRow={false} />
+            <Banner fetchUrl={requests.movies.fetchNetflixOriginalsMovies}/>
+            {renderRows(category)}
         </div>
     )
 }

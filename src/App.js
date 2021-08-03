@@ -35,28 +35,38 @@ function App() {
     return () => {
       unsubscribe();
     }
-  }, [])
-  return (
+  }, [dispatch])
 
+  return (
     <div className="App">
       <Router>
         {!user ? (
           <Login />
         ) : (
             <Switch>
-            <Route path ="/profile">
+            <Route path = "/profile">
                 <Profile />
             </Route>
-
-           <Route exact path ="/">
+            <Route path = "/browse/tvs">
+                <Home category={'tvs'} />
+            </Route>
+            <Route path = "/browse/movies">
+                <Home category={'movies'} />
+            </Route>
+            <Route path = "/browse/latest">
+                <Home category={'latest'} />
+            </Route>
+            <Route path = "/browse/kids">
+                <Home category={'kids'} />
+            </Route>
+           <Route exact path = "/">
               <Home />
            </Route>
           </Switch>
         )}
       </Router>
     </div>
-
   );
-}
+};
 
 export default App;
