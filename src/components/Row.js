@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from '../utils/axios'
 import '../styles/Row.css'
-import requests from '../utils/Requests'
 
 import { Swiper, SwiperSlide }  from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Lazy} from 'swiper';
@@ -14,7 +13,7 @@ import 'swiper/components/scrollbar/scrollbar.scss';
 function Row({title, fetchUrl, isLargeRow}) {
     const [movies, setMovies] = useState([]);
     const base_url = "http://image.tmdb.org/t/p/original/";
-    const slidesPerViewNum = 7;
+    const slidesPerViewNum = 6;
     SwiperCore.use([Pagination,Navigation, Lazy]);
     
     useEffect(() => {
@@ -28,7 +27,7 @@ function Row({title, fetchUrl, isLargeRow}) {
 
     return (
         <div className="row">
-            <h2>{title}</h2>
+            <h2 className="row__title">{title}</h2>
 
             <div className="row__posters">
                 <Swiper

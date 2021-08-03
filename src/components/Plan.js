@@ -26,7 +26,7 @@ function Plan() {
                     });
                 });
             });
-    }, []);
+    }, [user]);
 
     useEffect(() => {
         db
@@ -49,8 +49,8 @@ function Plan() {
     }, []);
 
     const loadCheckout = async (priceId) => {
-        const docRef = await db.
-        collection('customers')
+        const docRef = await db
+        .collection('customers')
         .doc(user.uid)
         .collection('checkout_sessions')
         .add({
@@ -87,7 +87,6 @@ function Plan() {
                 const isCurrentPackage = productData.name
                 ?.toLowerCase()
                 .includes(subscription?.role);
-
                 return(
                 <div 
                 key={productId}

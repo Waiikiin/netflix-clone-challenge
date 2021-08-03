@@ -4,6 +4,10 @@
   margin-top: 35px;
 }
 
+.row__title {
+  padding-left: 10px;
+}
+
 .row__posters {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -14,16 +18,12 @@
   display: none;
 }
 
-.row__description {
-  margin: 10px;
-}
-
 .swiper-wrapper {
-  padding: 20px 0;
+  padding: 25px 0;
 }
 
 .swiper-slide {
-  transition: 450ms all !important;
+  transition: 350ms 150ms all !important;
   z-index: -1 !important;
 }
 
@@ -33,16 +33,16 @@
 }
 
 .swiper-slide:hover {
-  transform: scale(1.2);
+  transform: scale(1.3);
   z-index: 1 !important;
 }
 
-.swiper-slide:nth-child(7n + 1):hover {
+.swiper-slide:nth-child(6n + 1):hover {
   margin: 0px 20px;
   z-index: 1 !important;
 }
 
-.swiper-slide:nth-child(7n):hover {
+.swiper-slide:nth-child(6n):hover {
   margin: 0px -20px;
   z-index: 1 !important;
 }

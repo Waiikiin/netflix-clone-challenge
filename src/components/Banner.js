@@ -1,36 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../utils/axios';
-import requests from '../utils/Requests';
 import '../styles/Banner.css'
 
-function Banner() {
+function Banner({fetchUrl}) {
     const [movie, setMovie] = useState([]);
 
     useEffect(() => {
-        function selectRandom(array) {
-            return array[Math.floor(Math.random() * array.length - 1)];
-        }
-
-        function searchValidLink(array) {
-            if (array){
-                let movie = selectRandom(array);
-                let url = movie.backdrop_path;
-                if (url) {
-                    return movie;
-                } else {
-                    
-                    searchValidLink(array);
-                }
-            }
-        }
-
         async function fetchData(){
-            const request = await axios.get(requests.fetchNetflixOriginals);
-            setMovie(searchValidLink(request.data.results)); 
+            const request = await axios.get(fetchUrl);
+            setMovie(request.data.results[Math.floor(Math.random() * request.data.results.length - 1)]); 
         }
 
         fetchData();
-    }, [])
+    }, [fetchUrl])
 
     function truncate(string, n){
         return string?.length > n ? string.substring(0, n-1) + '...' : string
