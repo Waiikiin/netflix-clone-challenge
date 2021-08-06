@@ -1,0 +1,15 @@
+.home {
+  background: black !important;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.home__rows {
+  margin-left: 13px;
+}
+
+.home__loader {
+  margin-left: 15%;
+  margin-right: 15%;
+  overflow: hidden;
+}

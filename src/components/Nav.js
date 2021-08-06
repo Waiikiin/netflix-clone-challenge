@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import '../styles/Nav.css'
 
-function Nav() {
+function Nav({showFull}) {
     const [show, handleShow] = useState(false); 
 
     const history = useHistory();
@@ -33,7 +33,7 @@ function Nav() {
     }, [])
 
     return (
-        <div className={`nav ${show && "nav__black"} `}>
+        <div className={`nav ${ (show || showFull) && "nav__black"} `}>
             <div className="nav__logos">
                 <img onError={e => {e.target.src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"}} onClick={() => history.push('/')} className="nav__logo" alt="" src="https://index.impakter.com/wp-content/uploads/2020/11/Netflix-Logo.png"></img>
                 <img onClick={() => history.push('/profile')} className="nav__avatar" alt="" src= "https://i.pinimg.com/originals/b4/0f/9f/b40f9f8fc0fb88aabf2a8acbc39c0ac0.png"></img>

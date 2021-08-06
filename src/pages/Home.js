@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from '../components/Nav';
 import Banner from '../components/Banner';
 import requests from '../utils/Requests';
 import Row from '../components/Row';
-
+import NetflixLoader from '../components/NetflixLoader'
+import About from '../components/About'
 import '../styles/Home.css';
 
 function Home({category}) {
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 1800)
+      }, [])
 
     function renameFetch(fetchName) {
         const mapObj = {
@@ -48,11 +54,29 @@ function Home({category}) {
     }
 
     return (
+        <>
+        {loading === false ? (
         <div className="home">
             <Nav />
             <Banner fetchUrl={requests.movies.fetchNetflixOriginalsMovies}/>
-            {renderRows(category)}
+            <div className="home__rows">
+                {renderRows(category)}
+            </div>
+            <About />
         </div>
+        ) : (
+            <div className="home__loader">
+                <NetflixLoader 
+                rows={4}
+                columns={6}
+                coverheight={200}
+                coverwidth={250}
+                padding={30}
+                speed={2} 
+                />
+            </div>
+        )}
+        </>
     )
 }
 
