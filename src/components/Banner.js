@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../utils/axios';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import '../styles/Banner.css'
 
 function Banner({fetchUrl}) {
@@ -24,17 +26,19 @@ function Banner({fetchUrl}) {
             style={{
                 backgroundSize: "cover no-repeat",
                 background: `url("http://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+                opacity: 0.8,
             }}
         >
             <div className="banner__contents">
                 <h1 className="banner__title">
                     {movie?.title || movie?.name || movie?.original_name} 
-                    </h1>
-                <div className="banner__buttons">
-                    <button className="banner__button"> Play </button>
-                    <button className="banner__button"> More info </button>
-                </div>
+                </h1>
                 <h1 className="banner__description"> {truncate(movie?.overview, 150)} </h1>
+                <div className="banner__buttons">
+                    <button className="banner__button banner__button-play"> <PlayArrowIcon className="material-icons" /> Play </button>
+                    <button className="banner__button banner__button-info"> <HelpOutlineIcon  className="material-icons"/> More info </button>
+                </div>
+               
             </div>
             <div className="banner--fadeBottom"></div>
         </div>

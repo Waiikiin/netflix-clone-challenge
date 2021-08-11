@@ -1,0 +1,43 @@
+.about {
+  color: grey;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.about__container {
+  margin-left: 25%;
+  width: 50%;
+}
+
+.about__socialMedia {
+  display: flex;
+  flex-direction: row;
+}
+
+.socialMedia__icon {
+  padding: 3px 8px;
+}
+
+.socialMedia__icon:hover {
+  cursor: pointer;
+}
+
+.about__info > ul {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  list-style: none;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.about__info > ul > li {
+  margin: 7px 15px;
+  flex: 20%;
+}
+
+.about__info > ul > li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

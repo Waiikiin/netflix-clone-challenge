@@ -1,6 +1,8 @@
 .profile {
-  height: 100vh;
-  color: white;
+  min-height: 100vh;
+  height: 100%;
+  color: black;
+  background: #f3f3f3;
 }
 
 .profile__body {
@@ -10,7 +12,7 @@
   margin-left: auto;
   margin-right: auto;
   padding-top: 8%;
-  max-width: 800px;
+  max-width: 1000px;
 }
 
 .profile__body > h1 {
@@ -29,14 +31,14 @@
 }
 
 .profile__details {
-  color: white;
+  color: black;
   margin-left: 25px;
   width: 100%;
 }
 
 .profile__details > h2 {
   font-size: 15px;
-  background-color: gray;
+  background-color: rgb(206, 206, 206);
   padding: 15px;
   padding-left: 20px;
 }
