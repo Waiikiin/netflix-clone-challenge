@@ -28,7 +28,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](Product)
 
-This is intended to imitate Netflix's layout, and its subscription functionality, powered by Stripe payment processing. It also has a simple login page and authentication powered by firebase. In the future, I'll continue add more functionalities such as video streaming, or profile page UI...etc. As of now, I'm working on other projects so these will have to wait.
+This is intended to clone Netflix's layout, and its subscription functionality, etc. The subscription payment service used in this application is Stripe. It has a simple login page and authentication powered by firebase. In the future, I'll continue add more functionalities such as video streaming, or profile page UI...etc. As of now, I'm working on other projects so these will have to wait.
 
 ### Built With
 * [React](https://reactjs.org/)
