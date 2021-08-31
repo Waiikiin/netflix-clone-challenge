@@ -32,6 +32,7 @@ This is intended to clone Netflix's layout, and its subscription functionality, 
 
 ### Built With
 * [React](https://reactjs.org/)
+* [React-content-loader](https://github.com/danilowoz/react-content-loader)
 * [Redux](https://redux.js.org/)
 * [Stripe](https://stripe.com/en-ca)
 * [Swiper](https://moment.github.io/luxon/#/)
